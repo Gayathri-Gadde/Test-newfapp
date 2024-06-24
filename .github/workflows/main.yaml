@@ -1,0 +1,26 @@
+name: Test Custom GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main: 'dist/index.js'
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run custom GitHub Action
+      id: get-date-time
+      uses: Gayathri-Gadde/Generate-Date-and-Time@t1.16
+      with:
+        function-url: 'https://new-fapp.azurewebsites.net/api/currentdatetime?'
+
+    - name: Output current date and time
+      run: echo "Current Date and Time from Azure Function ${{ steps.get-date-time.outputs.currentDateTime}}"
