@@ -3,10 +3,10 @@ name: Test Custom GitHub Action
 on:
   push:
     branches:
-      - main
+      - main: 'dist/index.js'
   pull_request:
     branches:
-      - main: 'dist/index.js'
+      - main
 
 jobs:
   test-action:
