@@ -3,7 +3,7 @@ name: Test Custom GitHub Action
 on:
   push:
     branches:
-      - main: 'dist/index.js'
+      - main
   pull_request:
     branches:
       - main
